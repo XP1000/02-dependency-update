@@ -7,7 +7,6 @@ import MySQLSession from 'express-mysql-session'
 import oneLine from 'common-tags/lib/oneLine'
 import rateLimit from 'express-rate-limit'
 import session from 'express-session'
-import uuid from 'uuid/v4'
 import { join, dirname } from 'path'
 import { readFileSync } from 'fs'
 
@@ -97,9 +96,6 @@ export default function init () {
         'none'
       ;
     `)
-
-    // Add per-request template variables
-    res.locals.nonce = createNonce()
 
     next()
   })
@@ -265,12 +261,7 @@ function createHash (data) {
   return trimBase64(crypto.createHash('sha256').update(data).digest('base64'))
 }
 
-// Create a random nonce to use in CSP
-function createNonce () {
-  return trimBase64(Buffer.from(uuid()).toString('base64'))
-}
-
-// Trim base64 hashes or nonces to a reasonable size
+// Trim base64 hashes to a reasonable size
 function trimBase64 (str) {
   return str.replace(/\+|\/|=/g, '').slice(0, 24)
 }
