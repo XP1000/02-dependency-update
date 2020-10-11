@@ -113,7 +113,7 @@
     "timidity": "^1.2.1",
     "undom": "^0.4.0",
     "unmute-ios-audio": "^3.1.0",
-    "uuid": "^3.3.3"
+    "uuid": "^8.3.1"
   },
   "devDependencies": {
     "@bubblewrap/cli": "^1.6.1",
