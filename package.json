@@ -119,7 +119,7 @@
     "@bubblewrap/cli": "^1.6.1",
     "babel-eslint": "^10.1.0",
     "babelify": "^10.0.0",
-    "browserify": "^16.5.2",
+    "browserify": "^17.0.0",
     "cssnano": "^4.1.10",
     "cssnano-preset-advanced": "^4.0.7",
     "disc": "^1.3.3",
