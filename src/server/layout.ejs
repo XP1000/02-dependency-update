@@ -8,7 +8,7 @@
     <meta name='description' content='<%= store.app.description %>'>
     <link rel='canonical' href='<%= config.origin %><%= store.location.canonicalUrl %>' />
 
-    <link rel='preload' as='script' href='/bundle.js?c=<%= scriptHash %>' nonce='<%= nonce %>' />
+    <link rel='preload' as='script' href='/bundle.js?c=<%= scriptHash %>' />
 
     <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
     <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
@@ -63,7 +63,7 @@
       <%- content %>
     </div>
 
-    <script nonce='<%= nonce %>'>
+    <script>
       console.time('render')
       window.initStore =
         <%- typeof store !== 'undefined'
@@ -71,7 +71,7 @@
           : '{}'
         %>
     </script>
-    <script async src='/bundle.js?c=<%= scriptHash %>' nonce='<%= nonce %>'></script>
+    <script async src='/bundle.js?c=<%= scriptHash %>'></script>
 
     <%_ if (config.isProd) { _%>
       <%# AdSense %>
@@ -85,7 +85,7 @@
     <%_ } _%>
 
     <%# Google Analytics %>
-    <script nonce='<%= nonce %>'>
+    <script>
       window.GoogleAnalyticsObject = 'ga'
       function ga () { window.ga.q.push(arguments) }
       window.ga.q = window.ga.q || []
@@ -95,7 +95,7 @@
     </script>
 
     <%# Quantcast %>
-    <script nonce='<%= nonce %>'>
+    <script>
       window._qevents = window._qevents || []
       window._qevents.push({ qacct: '<%= config.tokens.quantcast %>' })
       function qc () {
@@ -107,13 +107,13 @@
 
     <%_ if (config.isProd) { _%>
       <%# Google Analytics %>
-      <script async src='https://www.google-analytics.com/analytics.js' nonce='<%= nonce %>'></script>
+      <script async src='https://www.google-analytics.com/analytics.js'></script>
 
       <%# Quantcast %>
-      <script async src='https://secure.quantserve.com/quant.js' nonce='<%= nonce %>'></script>
+      <script async src='https://secure.quantserve.com/quant.js'></script>
 
       <%# PurpleAds %>
-      <script async src='https://cdn.purpleads.io/load.js?publisherId=7854886efa53862c45b95713af577483:538b79d50d2f1b5e0d876b4b840704f0f90c74622ff6e0ffc2265343445330319fcc3a260b7595db194e728a6acbf0c582051c4825c28c3e950860df3c560e1a' id='purpleads-client' nonce='<%= nonce %>'></script>
+      <script async src='https://cdn.purpleads.io/load.js?publisherId=7854886efa53862c45b95713af577483:538b79d50d2f1b5e0d876b4b840704f0f90c74622ff6e0ffc2265343445330319fcc3a260b7595db194e728a6acbf0c582051c4825c28c3e950860df3c560e1a' id='purpleads-client'></script>
     <%_ } _%>
 
   </body>
